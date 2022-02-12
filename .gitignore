@@ -1,0 +1,8 @@
+# binaries
+bin/*
+
+# secrets
+.env
+
+# node
+node_modules

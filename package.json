@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "ffi-napi": "^4.0.3",
+    "ref-napi": "^3.0.3",
+    "ws": "^8.5.0"
+  },
+  "name": "7566",
+  "version": "1.0.0",
+  "main": "js/index.js",
+  "author": "Hri7566",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "yarn make && yarn start",
+    "start": "node .",
+    "make": "make all",
+    "clean": "make clean"
+  }
+}
