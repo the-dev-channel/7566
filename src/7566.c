@@ -19,7 +19,7 @@ void printAddress(void* address) {
     return;
 }
 
-void receive(char* message) {
+char* receive(char* message, User* user) {
     // string to array
     char* args[10];
     int argc = 0;
@@ -31,8 +31,8 @@ void receive(char* message) {
     }
 
     // run command
-    char* response = runCommand(args[0], NULL);
-    printf("%s\n", response);
+    char* response = runCommand(args[0], user);
+    // printf("%s\n", response);
     
-    return;
+    return response;
 }

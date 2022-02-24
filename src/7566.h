@@ -14,6 +14,6 @@ typedef struct {
     char* (*func)(int, char **, User*);
 } Command;
 
-char* runCommand(char* cmd, User *user);
+char* runCommand(char *cmd, User *user);
 
 #endif
