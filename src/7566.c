@@ -8,9 +8,12 @@
 #include <string.h>
 #include "config.h"
 #include "7566.h"
+#include "Logger.h"
 
 void init(void) {
-    
+    printf("\x1b[42m\x1b[30m                                    \x1b[0m\n\x1b[42m\x1b[30m ███████╗███████╗ ██████╗  ██████╗  \x1b[0m\n\x1b[42m\x1b[30m ╚════██║██╔════╝██╔════╝ ██╔════╝  \x1b[0m\n\x1b[42m\x1b[30m     ██╔╝███████╗███████╗ ███████╗  \x1b[0m\n\x1b[42m\x1b[30m    ██╔╝ ╚════██║██╔═══██╗██╔═══██╗ \x1b[0m\n\x1b[42m\x1b[30m    ██║  ███████║╚██████╔╝╚██████╔╝ \x1b[0m\n\x1b[42m\x1b[30m    ╚═╝  ╚══════╝ ╚═════╝  ╚═════╝  \x1b[0m\n\x1b[42m\x1b[30m                                    \x1b[0m\n\n");
+    slog("Initialization complete.");
+    slog("Copyright (c) 2022 Hri7566, The Dev Channel");
     return;
 }
 
