@@ -7,8 +7,16 @@ char* cmd_about(int argc, char** argv, User *user) {
     return "Ⓒ 2022 Hri7566, The Dev Channel";
 }
 
+Command* commands[];
+int cmd_count;
+
 char* cmd_help(int argc, char** argv, User *user) {
-    return "WIP";
+    char cmds[100];
+    strcpy(cmds, "Commands:\n");
+    for (int i = 0; i < cmd_count; i++) {
+        strcat(cmds, (*commands[i]).name);
+        strcat(cmds, "\n");
+    }
 }
 
 char* cmd_usertest(int argc, char** argv, User *user) {
@@ -40,6 +48,8 @@ Command* commands[] = {
     &CMD_HELP,
     &CMD_USERTEST
 };
+
+cmd_count = sizeof(commands) / sizeof(Command*);
 
 char* runCommand(char* cmd, User *user) {
     for (int i = 0; i < sizeof(commands) / sizeof(Command*); i++) {
