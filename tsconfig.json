@@ -9,7 +9,8 @@
         "declaration": true,
         "experimentalDecorators": true,
         "types": [
-            "node"
+            "node",
+            "jest"
         ]
     },
     "include": [
