@@ -1,5 +1,5 @@
 CC := gcc
-SRCS := src/7566.c src/commands.c
+SRCS := src/7566.c src/commands.c src/Logger.c
 FLAGS := -shared -fPIC
 LIBS := -Llib/
 
