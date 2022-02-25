@@ -17,6 +17,7 @@
     "test": "yarn make && yarn start",
     "start": "node .",
     "make": "make all",
-    "clean": "make clean"
+    "clean": "make clean",
+    "build": "yarn make && npx tsc -p tsconfig.json"
   }
 }
