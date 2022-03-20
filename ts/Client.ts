@@ -1,3 +1,10 @@
+/**
+ * 7566
+ * Copyright (C) 2022 The Dev Channel, Hri7566
+ *
+ * Intermediary client module
+ */
+
 class Client {
     id: string
     cl: any;

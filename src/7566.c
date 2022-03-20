@@ -1,13 +1,13 @@
 /**
  * 7566
- * Ⓒ 2022 Hri7566, The Dev Channel
+ * Copyright (C) 2022 The Dev Channel, Hri7566
+ *
+ * Main C module
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "config.h"
 #include "7566.h"
+#include "commands.h"
 #include "Logger.h"
 
 void init(void) {
@@ -34,8 +34,9 @@ char* receive(char* message, User* user) {
     }
 
     // run command
-    char* response = runCommand(args[0], user);
-    // printf("%s\n", response);
+    char* response = runCommand(argc, args, user);
+    
+    slog(response);
     
     return response;
 }

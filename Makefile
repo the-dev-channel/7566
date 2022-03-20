@@ -5,6 +5,8 @@ LIBS := -Llib/
 
 OUTDIR := ./bin/
 
+COMMANDS := src/cmd/help/help.c src/cmd/about/about.c src/cmd/coinflip/coinflip.c
+
 all:
 	mkdir -p $(OUTDIR)
-	$(CC) $(FLAGS) -o $(OUTDIR)7566.so $(SRCS) $(LIBS)
+	$(CC) $(FLAGS) -o $(OUTDIR)7566.so $(SRCS) $(COMMANDS) $(LIBS)

@@ -1,82 +1,46 @@
 require('dotenv').config();
 
+const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
+const MPP_TOKEN = process.env.MPP_TOKEN;
+
 const bot = require('./ffi');
 bot.init();
+
+globalThis.bot = bot;
+
+const { DiscordClient, MPPClient } = require('./Clients');
+
+const clients = [];
+const clientList = require('./clients.json');
+
+for (let cl of clientList) {
+    let c;
+
+    switch (cl.type) {
+        case 'Discord':
+            c = new DiscordClient(cl.token);
+            clients.push(c);
+            break;
+        case 'MPP':
+            c = new MPPClient(cl.uri, cl.channel, MPP_TOKEN);
+            clients.push(c);
+            break;
+    }
+    
+    if (c) c.start();
+}
 
 // process.stdin.on('data', data => {
 //     let str = data.toString().trim();
 //     if (str === 'exit') {
 //         process.exit();
 //     }
-//     let res = bot.receive(str);
-
+//     let user = {
+//         name: 'Hri7566',
+//         id: 'ead',
+//         _id: 'ead',
+//         color: '#8d3f50'
+//     }
+//     let res = bot.receive(str, user);
 //     console.log(res);
 // });
-
-// console.log(bot.runCommand('help', {
-//     name: 'hri7566',
-//     _id: "6e7a8fbe618e0f8a7e821319",
-//     color: "#9900ff"
-// }));
-
-const { join } = require('path');
-const { readFileSync } = require('fs');
-const { exec } = require('child_process');
-
-const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
-const Discord = require('discord.js');
-
-const client = new Discord.Client({
-    intents: [
-        'GUILDS',
-        'DIRECT_MESSAGES',
-        'GUILD_MESSAGES'
-    ]
-});
-
-client.on('ready', () => {
-});
-
-client.on('messageCreate', message => {
-    if (message.author.bot) return;
-    if (message.content.startsWith('.')) {
-        let res = bot.receive(message.content.substring(1), {
-            name: message.author.username,
-            _id: message.author.id,
-            color: message.author.displayHexColor
-        });
-        if (res) {
-            message.channel.send(`\u034f${res}`);
-        }
-    }
-});
-
-client.login(DISCORD_TOKEN);
-
-const Client = require('./MPP/Client');
-
-let cl = new Client('wss://mpp.hri7566.info:8443');
-
-cl.start();
-
-cl.setChannel('lobby');
-
-cl.on('hi', () => {
-});
-
-cl.on('a', msg => {
-    if (msg.a.startsWith('.')) {
-        let res = bot.receive(msg.a.substring(1), {
-            name: msg.p.name,
-            _id: msg.p._id,
-            color: msg.p.color
-        });
-
-        if (res) {
-            cl.sendArray([{
-                m: 'a',
-                message: `\u034f${res}`
-            }]);
-        }
-    }
-});
