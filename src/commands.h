@@ -6,6 +6,7 @@
 #include "cmd/help/help.h"
 #include "cmd/about/about.h"
 #include "cmd/coinflip/coinflip.h"
+#include "cmd/8ball/8ball.h"
 
 extern Command commands[];
 

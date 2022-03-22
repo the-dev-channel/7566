@@ -26,7 +26,7 @@ class MPPClient extends Client {
             } else {
                 msg.a = msg.a.substring(msg.a.indexOf(' ') + 1);
             }
-            console.log(msg.a);
+            // console.log(msg.a);
             let res = (globalThis as any).bot.receive(msg.a, msg.p);
             this.sendChat(res);
         });

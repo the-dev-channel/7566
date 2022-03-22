@@ -22,6 +22,11 @@ Command commands[] = {
         .name = "coinflip",
         .desc = "Flip a coin",
         .func = _7566_cmd_coinflip
+    },
+    {
+        .name = "8ball",
+        .desc = "Ask the magic 8 ball a question",
+        .func = _7566_cmd_8ball
     }
 };
 

@@ -5,7 +5,7 @@ LIBS := -Llib/
 
 OUTDIR := ./bin/
 
-COMMANDS := src/cmd/help/help.c src/cmd/about/about.c src/cmd/coinflip/coinflip.c
+COMMANDS := src/cmd/help/help.c src/cmd/about/about.c src/cmd/coinflip/coinflip.c src/cmd/8ball/8ball.c
 
 all:
 	mkdir -p $(OUTDIR)

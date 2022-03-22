@@ -36,7 +36,7 @@ char* receive(char* message, User* user) {
     // run command
     char* response = runCommand(argc, args, user);
     
-    slog(response);
+    // slog(response);
     
     return response;
 }
